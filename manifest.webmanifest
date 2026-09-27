@@ -1,0 +1,16 @@
+{
+  "name": "Coffee Library",
+  "short_name": "Coffee",
+  "description": "A personal log for specialty coffees, V60 recipes and how each cup turned out.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F8F4EE",
+  "theme_color": "#F8F4EE",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
