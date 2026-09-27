@@ -27,15 +27,15 @@ data in this browser only.
 1. Create a free account and a new project at https://supabase.com (any region close to you).
 2. **Database**: in the dashboard open *SQL Editor* → *New query*, paste the contents of
    [`supabase/schema.sql`](supabase/schema.sql) and click *Run*.
-3. **Auth**: *Authentication → Sign In / Providers → Email* should be enabled (it is by default).
-   Optional: turn off *Confirm email* so you can sign in right after creating your account.
-   Otherwise, set *Authentication → URL Configuration → Site URL* to your GitHub Pages URL so the
-   confirmation link opens the app.
-4. **Keys**: *Project Settings → API Keys* (or the *Connect* button). Copy the **Project URL** and
+3. **Auth**: under *Authentication → Sign In / Providers*, keep *Email* enabled, turn off
+   *Confirm email* and turn off *Allow new users to sign up*, so nobody else can create an account.
+4. **Your account**: *Authentication → Users → Add user → Create new user*, enter your email and a
+   strong password, and tick *Auto Confirm User*. The app has no sign-up screen; it only signs in.
+5. **Keys**: *Project Settings → API Keys* (or the *Connect* button). Copy the **Project URL** and
    the **publishable / anon** key into [`js/config.js`](js/config.js). Never use the `service_role`
    or secret key here.
-5. Reload the app, create your account and sign in. If you tried demo mode first, *Settings* offers
-   to copy those demo entries into your account.
+6. Reload the app and sign in. If you tried demo mode first, *Settings* offers to copy those demo
+   entries into your account.
 
 Both values in `config.js` are meant to be public; row-level security makes sure only you can read
 and change your data.
@@ -54,6 +54,15 @@ and change your data.
 
 Open the GitHub Pages URL in **Safari** → Share button → **Add to Home Screen**.
 The home-screen app has its own storage, separate from Safari, so sign in inside the installed app.
+
+## Security notes
+
+- Nothing secret is in this repository. The Supabase publishable key is designed to be public; the
+  database only accepts requests from your signed-in account (row-level security), and sign-ups are
+  disabled. Never commit the `service_role`/secret key or any password.
+- Bag photos are in a public bucket under random file names: viewable only by someone who has the
+  exact link, and the bucket can't be listed. Photos are re-encoded in the browser before upload,
+  which strips EXIF data such as GPS location.
 
 ## Updating
 

@@ -149,11 +149,6 @@ export async function signIn(email, password) {
   const { error } = await sb.auth.signInWithPassword({ email, password });
   if (error) throw error;
 }
-export async function signUp(email, password) {
-  const { data, error } = await sb.auth.signUp({ email, password, options: { emailRedirectTo: location.href.split('#')[0] } });
-  if (error) throw error;
-  return { needsConfirmation: !data.session };
-}
 export async function signOut() {
   await sb.auth.signOut();
   localStorage.removeItem(CACHE_KEY);
